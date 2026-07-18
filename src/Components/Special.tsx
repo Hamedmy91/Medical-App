@@ -3,7 +3,7 @@ const Special = () => {
     <div>
       <div
         id="speciality"
-        className="flex flex-col mt-4 gap-3 justify-center items-center text-center p-2 overflow-hidden "
+        className="flex flex-col mt-4 gap-3 justify-center items-center text-center p-2 overflow-x-hidden "
       >
         <h1 className="text-[30px] font-medium">Find by Speciality</h1>
         <p className="text-[14px] text-[#262626] font-medium">
@@ -11,7 +11,7 @@ const Special = () => {
           your appointment hassle-free.
         </p>
         <div>
-          <ul className="flex flex-row  justify-center items-center gap-4 w-full transition-all duration-500 ease-in-out cursor-pointer  overflow-scroll">
+          <ul className="flex flex-row p-4 justify-center items-center gap-4 max-w-sm sm:max-w-full transition-all duration-500 ease-in-out cursor-pointer  overflow-x-auto ">
             <li className="flex flex-col justify-center items-center gap-2 transition-all duration-500 ">
               <img className="w-16 h-16" src="/doc1.svg" alt="" />
               <p className="text-[12px] text-[#262626] font-medium">

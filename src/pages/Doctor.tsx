@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getListDoctor } from "../Api/Requests";
 
 const Doctor = () => {
   const [filter, setFilter] = useState("");
@@ -12,6 +14,20 @@ const Doctor = () => {
     "Gastroenterologist",
   ];
   const [showFilter, setShowFilter] = useState(false);
+
+  const {
+    data: doctors,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["doctors"],
+    queryFn: getListDoctor,
+  });
+
+  if (isLoading) return <h1>Loading...</h1>;
+
+  if (error) return <h1>Error...</h1>;
+
   return (
     <div className="flex flex-col p-4 ">
       <div>
@@ -39,6 +55,36 @@ const Doctor = () => {
             </div>
           )}
         </div>
+      </div>
+      <div className="flex flex-col  gap-4 mt-5">
+        {doctors?.map((doctor) => (
+          <div
+            key={doctor._id}
+            className="border border-[#eaefff] w-79.25 h-104.25 rounded-lg "
+          >
+            <img
+              src={doctor.image}
+              alt={doctor.name}
+              className="w-79.25 h-79.25 bg-[#eaefff] object-cover rounded-md"
+            />
+            <div className="flex flex-col  justify-start items-start p-2">
+              <div className="flex gap-2 items-center">
+                <div className="border w-2 h-2 rounded-full bg-[#22c55e] border-[#22c55e]"></div>
+                <p className="text-[14px] text-[#22c55e]">
+                  {doctor.available ? "Available" : "Not Available"}
+                </p>
+              </div>
+
+              <h2 className="mt-2 text-[18px] text-[#262626] font-semibold">
+                {doctor.name}
+              </h2>
+
+              <p className="text-[14px] text-[#5c5c5c] font-medium">
+                {doctor.speciality}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

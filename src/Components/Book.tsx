@@ -9,7 +9,7 @@ const Book = () => {
         <p className="text-white text-[20px] font-medium">
           With 100+ Trusted Doctors
         </p>
-        <Link to = "/login" className="w-40 h-11 bg-white rounded-full text-[14px] text-[#595959] font-medium">Create Account</Link>
+        <Link to = "/login" className=" flex w-40 h-11 bg-white rounded-full text-[14px] text-[#595959] text-center items-center justify-center font-medium">Create Account</Link>
       </div>
     </div>
   );

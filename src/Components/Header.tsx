@@ -15,7 +15,7 @@ const Header = () => {
       </div>
 
       <div
-        className={`fixed top-0 right-0 w-full h-screen bg-white z-50 transform transition-transform duration-500 ${
+        className={`fixed top-0 right-0 w-full h-full bg-white z-50 transform transition-transform duration-500 ${
           showMenu ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getListDoctor } from "../Api/DoctorApi";
+import { getListDoctor } from "../Api/Requests";
 import { Link } from "react-router";
 
 const Doctors = () => {
@@ -28,7 +28,7 @@ const Doctors = () => {
         </p>
 
         <div className="flex flex-col  gap-4 mt-5">
-          {doctors?.map((doctor) => (
+          {doctors?.slice(0,10).map((doctor) => (
             <div
               key={doctor._id}
               className="border border-[#eaefff] w-79.25 h-104.25 rounded-lg "
