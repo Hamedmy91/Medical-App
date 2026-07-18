@@ -1,4 +1,8 @@
-import axios from "axios";
+import type { IDoctor } from "../Interfaces/Interface";
+import { api } from "./Axios";
 
-
-const response = await axios.get('api')
+export const getListDoctor = async () => {
+  const response = await api.get<IDoctor>("/doctor/list")
+  ;
+  return response.data;
+};

@@ -9,6 +9,8 @@ import mainLayOut from "./Layout/mainLayOut.tsx";
 import Contact from "./pages/Contact.tsx";
 import About from "./pages/About.tsx";
 import Doctor from "./pages/Doctor.tsx";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Login from "./pages/Login.tsx";
 
 const queryClient = new QueryClient();
 
@@ -33,13 +35,19 @@ const router = createBrowserRouter([
         path: "about",
         Component: About,
       },
+      {
+        path: "login",
+        Component: Login,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}></QueryClientProvider>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </StrictMode>,
 );
