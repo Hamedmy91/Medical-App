@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router";
+
 const Special = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -11,38 +14,56 @@ const Special = () => {
           your appointment hassle-free.
         </p>
         <div>
-          <ul className="flex flex-row p-4 justify-center items-center gap-4 max-w-sm sm:max-w-full transition-all duration-500 ease-in-out cursor-pointer  overflow-x-auto ">
-            <li className="flex flex-col justify-center items-center gap-2 transition-all duration-500 ">
+          <ul className="flex flex-row pl-60 justify-center items-center gap-4 max-w-xs sm:max-w-full transition-all duration-500 ease-in-out overflow-x-auto ">
+            <li
+              onClick={() => navigate("/doctors/General physician")}
+              className="flex flex-col justify-center items-center gap-2 transition-all duration-500 "
+            >
               <img className="w-16 h-16" src="/doc1.svg" alt="" />
-              <p className="text-[12px] text-[#262626] font-medium">
+              <p className="text-[12px] text-[#262626] font-medium w-24 leading-5">
                 General physician
               </p>
             </li>
-            <li className="flex flex-col justify-center items-center gap-2 duration-500 transition-all">
+            <li
+              onClick={() => navigate("/doctors/Dermatologist")}
+              className="flex flex-col justify-center items-center gap-2 duration-500 transition-all"
+            >
               <img className="w-16 h-16" src="/doc2.svg" alt="" />
-              <p className="text-[12px] text-[#262626] font-medium">
+              <p className="text-[12px] text-[#262626] font-medium ">
                 Gynecologist
               </p>
             </li>
-            <li className="flex flex-col justify-center items-center gap-2 duration-500 transition-all">
+            <li
+              onClick={() => navigate("/doctors/Dermatologist")}
+              className="flex flex-col justify-center items-center gap-2 duration-500 transition-all"
+            >
               <img className="w-16 h-16" src="/doc3.svg" alt="" />
               <p className="text-[12px] text-[#262626] font-medium">
                 Dermatologist
               </p>
             </li>
-            <li className="flex flex-col justify-center items-center gap-2 duration-500 transition-all">
+            <li
+              onClick={() => navigate("/doctors/Pediatricians")}
+              className="flex flex-col justify-center items-center gap-2 duration-500 transition-all"
+            >
               <img className="w-16 h-16" src="/doc4.svg" alt="" />
               <p className="text-[12px] text-[#262626] font-medium">
                 Pediatricians
               </p>
             </li>
-            <li className="flex flex-col justify-center items-center gap-2 duration-500 transition-all">
+            <li
+              onClick={() => navigate("/doctors/Neurologist")}
+              className="flex flex-col justify-center items-center gap-2 duration-500 transition-all"
+            >
               <img className="w-16 h-16" src="/doc5.svg" alt="" />
               <p className="text-[12px] text-[#262626] font-medium">
                 Neurologist
               </p>
             </li>
-            <li className="flex flex-col justify-center items-center gap-2 duration-500">
+            <li
+              onClick={() => navigate("/doctors/Gastroenterologist")}
+              className="flex flex-col justify-center items-center gap-2 duration-500"
+            >
               <img className="w-16 h-16" src="/doc6.svg" alt="" />
               <p className="text-[12px] text-[#262626] font-medium">
                 Gastroenterologist

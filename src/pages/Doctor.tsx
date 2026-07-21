@@ -29,7 +29,7 @@ const Doctor = () => {
   if (error) return <h1>Error...</h1>;
 
   return (
-    <div className="flex flex-col p-4 ">
+    <div className="flex flex-col p-4 gap-4 ">
       <div>
         <p className="text-[#4b5563] text-[16px]  ">
           Browse through the doctors specialist.
@@ -46,8 +46,13 @@ const Doctor = () => {
               {specialities.map((item) => (
                 <button
                   key={item}
-                  onClick={() => setFilter(item)}
-                  className="border px-4 py-2 text-start text-[14px] rounded-[5px] border-[#e5e7eb] w-full text-[#4b5563]"
+                  onClick={() => setFilter(filter === item ? "" : item)}
+                  className={`w-full h-12 rounded-md border text-left px-5 transition-all duration-300 
+        ${
+          filter === item
+            ? "bg-[#EAEFFF] border-[#5F6FFF] text-[#5F6FFF]"
+            : "border-gray-300 text-gray-600"
+        }`}
                 >
                   {item}
                 </button>
@@ -56,8 +61,11 @@ const Doctor = () => {
           )}
         </div>
       </div>
-      <div className="flex flex-col  gap-4 mt-5">
-        {doctors?.map((doctor) => (
+      {doctors
+        ?.filter((doctor) =>
+          filter === "" ? true : doctor.speciality === filter,
+        )
+        .map((doctor) => (
           <div
             key={doctor._id}
             className="border border-[#eaefff] w-79.25 h-104.25 rounded-lg "
@@ -67,25 +75,21 @@ const Doctor = () => {
               alt={doctor.name}
               className="w-79.25 h-79.25 bg-[#eaefff] object-cover rounded-md"
             />
-            <div className="flex flex-col  justify-start items-start p-2">
+
+            <div className="flex flex-col justify-start items-start p-2">
               <div className="flex gap-2 items-center">
-                <div className="border w-2 h-2 rounded-full bg-[#22c55e] border-[#22c55e]"></div>
+                <div className="w-2 h-2 rounded-full bg-[#22c55e]"></div>
                 <p className="text-[14px] text-[#22c55e]">
                   {doctor.available ? "Available" : "Not Available"}
                 </p>
               </div>
 
-              <h2 className="mt-2 text-[18px] text-[#262626] font-semibold">
-                {doctor.name}
-              </h2>
+              <h2 className="mt-2 text-[18px] font-semibold">{doctor.name}</h2>
 
-              <p className="text-[14px] text-[#5c5c5c] font-medium">
-                {doctor.speciality}
-              </p>
+              <p className="text-[14px] text-[#5c5c5c]">{doctor.speciality}</p>
             </div>
           </div>
         ))}
-      </div>
     </div>
   );
 };
