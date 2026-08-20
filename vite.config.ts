@@ -75,6 +75,30 @@ export default defineConfig({
           },
         ],
       },
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+        runtimeCaching: [
+          {
+            urlPattern:
+              /^https:\/\/prescripto-server\.greatstack\.in\/api\/.*/i,
+
+            handler: "NetworkFirst",
+
+            options: {
+              cacheName: "products-api-cache",
+
+              expiration: {
+                maxEntries: 20,
+                maxAgeSeconds: 60 * 60,
+              },
+
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+      },
     }),
   ],
 });
