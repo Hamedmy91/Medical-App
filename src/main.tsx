@@ -11,6 +11,7 @@ import About from "./pages/About.tsx";
 import Doctor from "./pages/Doctor.tsx";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Login from "./pages/Login.tsx";
+import DoctorDetails from "./pages/DoctorDetails.tsx";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         Component: Login,
+      },
+      {
+        path: "doctor:/id",
+        Component: DoctorDetails,
       },
     ],
   },

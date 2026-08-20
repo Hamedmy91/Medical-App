@@ -28,8 +28,9 @@ const Doctors = () => {
         </p>
 
         <div className="flex flex-col  gap-4 mt-5">
-          {doctors?.slice(0,10).map((doctor) => (
-            <div
+          {doctors?.slice(0, 10).map((doctor) => (
+            <Link
+              to={`/doctor/${doctor._id}`}
               key={doctor._id}
               className="border border-[#eaefff] w-79.25 h-104.25 rounded-lg "
             >
@@ -54,7 +55,7 @@ const Doctors = () => {
                   {doctor.speciality}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="w-33.5 h-12 text-center items-center flex justify-center  text-[#4b5563] text-[16px] font-medium bg-[#eaefff] rounded-full">

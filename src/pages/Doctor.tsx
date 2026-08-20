@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getListDoctor } from "../Api/Requests";
+import { Link } from "react-router";
 
 const Doctor = () => {
   const [filter, setFilter] = useState("");
@@ -66,7 +67,8 @@ const Doctor = () => {
           filter === "" ? true : doctor.speciality === filter,
         )
         .map((doctor) => (
-          <div
+          <Link
+            to={`/doctor/${doctor._id}`}
             key={doctor._id}
             className="border border-[#eaefff] w-79.25 h-104.25 rounded-lg "
           >
@@ -83,12 +85,10 @@ const Doctor = () => {
                   {doctor.available ? "Available" : "Not Available"}
                 </p>
               </div>
-
               <h2 className="mt-2 text-[18px] font-semibold">{doctor.name}</h2>
-
               <p className="text-[14px] text-[#5c5c5c]">{doctor.speciality}</p>
             </div>
-          </div>
+          </Link>
         ))}
     </div>
   );
